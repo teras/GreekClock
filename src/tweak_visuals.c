@@ -1,4 +1,6 @@
 #include "tweak_visuals.h"
+#include "watch_layout.h"
+#include "config.h"
 
 static void setTo(GColor back, GColor fore) {
   window_set_background_color(l_window(), back);
@@ -8,10 +10,10 @@ static void setTo(GColor back, GColor fore) {
   text_layer_set_text_color(l_txt_min2(), fore);
 }
 
-void setToBlack(void) {
-  setTo(GColorBlack, GColorWhite);
-}
-
-void setToWhite(void) {
-  setTo(GColorWhite, GColorBlack);
+void updateVisual(void) {
+  bool black = persist_read_bool(KEY_BLACK);
+  if (black)
+    setTo(GColorBlack, GColorWhite);
+  else
+    setTo(GColorWhite, GColorBlack);
 }

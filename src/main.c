@@ -2,6 +2,7 @@
 #include "logic.h"
 #include "watch_layout.h"
 #include "tweak_visuals.h"
+#include "config.h"
 
 static void update_time(struct tm *tick_time) {
   // Display this time on the TextLayer
@@ -23,7 +24,8 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   
 static void init() {
   show_watch_layout();
-  setToWhite();
+  registerConfig();
+  updateVisual();
   
   // Show initial time
   time_t temp = time(NULL); 

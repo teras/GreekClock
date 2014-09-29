@@ -1,7 +1,9 @@
 {
-    "appKeys": {},
+    "appKeys": {
+        "KEY_BLACK": 0
+    },
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "panayotis.com",
     "longName": "GreekClock",
@@ -9,9 +11,9 @@
     "resources": {
         "media": [
             {
-                "file": "images/screenshot.png",
+                "file": "images/icon.png",
                 "menuIcon": true,
-                "name": "APP_ICON",
+                "name": "CLOCK_ICON",
                 "type": "png"
             },
             {
