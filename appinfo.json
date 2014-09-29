@@ -17,13 +17,13 @@
             {
                 "characterRegex": "[\u03ac-\u03ce]",
                 "file": "fonts/Arial Black.ttf",
-                "name": "ARIAL_BLACK_35",
+                "name": "ARIAL_BLACK_28",
                 "type": "font"
             },
             {
                 "characterRegex": "[\u03ac-\u03ce]",
                 "file": "fonts/Arial Black.ttf",
-                "name": "ARIAL_BLACK_28",
+                "name": "ARIAL_BLACK_33",
                 "type": "font"
             }
         ]
