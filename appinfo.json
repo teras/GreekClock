@@ -1,0 +1,38 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "panayotis.com",
+    "longName": "GreekClock",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/screenshot.png",
+                "menuIcon": true,
+                "name": "APP_ICON",
+                "type": "png"
+            },
+            {
+                "characterRegex": "[\u03ac-\u03ce]",
+                "file": "fonts/Arial Black.ttf",
+                "name": "ARIAL_BLACK_35",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[\u03ac-\u03ce]",
+                "file": "fonts/Arial Black.ttf",
+                "name": "ARIAL_BLACK_28",
+                "type": "font"
+            }
+        ]
+    },
+    "shortName": "GreekClock",
+    "uuid": "04c08460-c725-41e7-a602-72ab49254ec2",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
