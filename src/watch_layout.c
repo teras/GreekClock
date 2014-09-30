@@ -2,7 +2,7 @@
 
 // BEGIN AUTO-GENERATED UI CODE; DO NOT MODIFY
 static Window *s_window;
-static GFont s_res_arial_black_33;
+static GFont s_res_arial_black_31;
 static GFont s_res_arial_black_28;
 static TextLayer *s_txt_hour;
 static TextLayer *s_txt_bridge;
@@ -14,14 +14,14 @@ static void initialise_ui(void) {
   window_set_background_color(s_window, GColorBlack);
   window_set_fullscreen(s_window, true);
   
-  s_res_arial_black_33 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ARIAL_BLACK_33));
+  s_res_arial_black_31 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ARIAL_BLACK_31));
   s_res_arial_black_28 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ARIAL_BLACK_28));
   // s_txt_hour
-  s_txt_hour = text_layer_create(GRect(1, 5, 142, 38));
+  s_txt_hour = text_layer_create(GRect(0, 4, 146, 39));
   text_layer_set_background_color(s_txt_hour, GColorClear);
   text_layer_set_text_color(s_txt_hour, GColorWhite);
-  text_layer_set_text(s_txt_hour, "έντεκα");
-  text_layer_set_font(s_txt_hour, s_res_arial_black_33);
+  text_layer_set_text(s_txt_hour, "τέσσερις");
+  text_layer_set_font(s_txt_hour, s_res_arial_black_31);
   layer_add_child(window_get_root_layer(s_window), (Layer *)s_txt_hour);
   
   // s_txt_bridge
@@ -55,7 +55,7 @@ static void destroy_ui(void) {
   text_layer_destroy(s_txt_bridge);
   text_layer_destroy(s_txt_min1);
   text_layer_destroy(s_txt_min2);
-  fonts_unload_custom_font(s_res_arial_black_33);
+  fonts_unload_custom_font(s_res_arial_black_31);
   fonts_unload_custom_font(s_res_arial_black_28);
 }
 // END AUTO-GENERATED UI CODE

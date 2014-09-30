@@ -75,6 +75,8 @@ char* getMin1(int minute) {
     return "τριάντα";
   else if (minute>=20)
     return "είκοσι";
+  else if (minute==16)
+    return "δεκάξι";
   else if (minute>12)
     return "δέκα";
   else
@@ -86,7 +88,7 @@ char* getMin2(int minute) {
     return "";
   else if (minute>=TIMEGAP)
     minute = 60-minute;
-  if (minute<=12)
+  if (minute<=12 || minute==16)
     return "";
   else if (minute>30)
     minute -= 30;
