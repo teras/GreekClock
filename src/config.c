@@ -12,9 +12,9 @@ static void in_recv_handler(DictionaryIterator *iterator, void *context)
     {
     case KEY_BLACK:
       //It's the KEY_BLACK key
-      if(strcmp(t->value->cstring, "on") == 0) {
+      if(strcmp(t->value->cstring, "black") == 0) {
         persist_write_bool(KEY_BLACK, true);
-      } else if(strcmp(t->value->cstring, "off") == 0) {
+      } else if(strcmp(t->value->cstring, "white") == 0) {
         persist_write_bool(KEY_BLACK, false);
       }
       updateVisual();
