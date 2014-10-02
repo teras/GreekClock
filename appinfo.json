@@ -1,6 +1,8 @@
 {
     "appKeys": {
-        "KEY_BLACK": 0
+        "KEY_BLACK": 0,
+        "KEY_FROM": 1,
+        "KEY_TO": 2
     },
     "capabilities": [
         "configurable"
@@ -33,7 +35,7 @@
     "shortName": "GreekClock",
     "uuid": "04c08460-c725-41e7-a602-72ab49254ec2",
     "versionCode": 1,
-    "versionLabel": "1.1",
+    "versionLabel": "1.2",
     "watchapp": {
         "watchface": true
     }
