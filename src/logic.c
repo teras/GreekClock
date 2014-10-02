@@ -33,7 +33,7 @@ static char* getNumber(int number, int asHour) {
       return "οκτώ";
     case 9:
     case 21:
-      return "εννέα";
+      return "εννιά";
     case 10:
     case 22:
       return "δέκα";
@@ -44,7 +44,9 @@ static char* getNumber(int number, int asHour) {
     case 12:
     case 24:
       return "δώδεκα";
-    default:
+    case 13:
+	  return "δεκατρία";
+	default:
       return "?λάθος";
   }
 }
@@ -56,7 +58,9 @@ char* getHour(int hour, int min) {
 char* getTimeBridge(int minute) {
   if (minute==0)
     return "ακριβώς";
-  if (minute>=TIMEGAP)
+  else if (minute==7||minute==8||minute==9)
+	  return "κι";
+  else if (minute>=TIMEGAP)
     return "παρά";
   else
     return "και";
@@ -77,7 +81,7 @@ char* getMin1(int minute) {
     return "είκοσι";
   else if (minute==16)
     return "δεκάξι";
-  else if (minute>12)
+  else if (minute>13)
     return "δέκα";
   else
     return getNumber(minute, FALSE);
@@ -88,7 +92,7 @@ char* getMin2(int minute) {
     return "";
   else if (minute>=TIMEGAP)
     minute = 60-minute;
-  if (minute<=12 || minute==16)
+  if (minute<=13 || minute==16)
     return "";
   else if (minute>30)
     minute -= 30;
