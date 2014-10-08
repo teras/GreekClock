@@ -1,5 +1,6 @@
 #include "logic.h"
-
+#include "config.h"
+	
 #define FALSE 0
 #define TRUE 1
 
@@ -33,19 +34,17 @@ static char* getNumber(int number, int asHour) {
       return "οκτώ";
     case 9:
     case 21:
-      return "εννιά";
+      return getLangFormal() ? "εννέα" : "εννιά";
     case 10:
     case 22:
       return "δέκα";
     case 11:
     case 23:
-      return "έντεκα";
+      return getLangFormal() ? "ένδεκα" : "έντεκα";
     case 0:    
     case 12:
     case 24:
       return "δώδεκα";
-    case 13:
-	  return "δεκατρία";
 	default:
       return "?λάθος";
   }
@@ -57,9 +56,9 @@ char* getHour(int hour, int min) {
 
 char* getTimeBridge(int minute) {
   if (minute==0)
-    return "ακριβώς";
-  else if (minute==7||minute==8||minute==9)
-	  return "κι";
+    return getLangFormal() ? "ακριβώς" : "νταν";
+  else if (minute>=6 && minute<=9)
+	  return getLangFormal() ? "και" : "κι";
   else if (minute>=TIMEGAP)
     return "παρά";
   else
@@ -79,7 +78,9 @@ char* getMin1(int minute) {
     return "τριάντα";
   else if (minute>=20)
     return "είκοσι";
-  else if (minute==16)
+  else if (getLangFormal() && minute==13)
+	return "δεκατρία";
+  else if (getLangFormal() && minute==16)
     return "δεκάξι";
   else if (minute>13)
     return "δέκα";
@@ -92,7 +93,9 @@ char* getMin2(int minute) {
     return "";
   else if (minute>=TIMEGAP)
     minute = 60-minute;
-  if (minute<=13 || minute==16)
+  if (minute<=12)
+	  return "";
+  if ( getLangFormal() &&(minute==13 || minute==16))
     return "";
   else if (minute>30)
     minute -= 30;

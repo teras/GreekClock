@@ -1,11 +1,13 @@
 #include <pebble.h>
 #include "config.h"
 #include "watch_layout.h"
-
+#include "ticking.h"
+	
 static int from = -1;
 static int to = -1;
+static int langFormal = -1;
 
-static void setTo(GColor back, GColor fore) {
+static void setBackTo(GColor back, GColor fore) {
   window_set_background_color(l_window(), back);
   text_layer_set_text_color(l_txt_hour(), fore);
   text_layer_set_text_color(l_txt_bridge(), fore);
@@ -25,8 +27,14 @@ static void in_recv_handler(DictionaryIterator *iterator, void *context) {
         } else if (strcmp(t->value->cstring, "white") == 0) {
           persist_write_bool(KEY_BLACK, false);
         }
-        updateVisual();
+		app_log(1, "config.c", 30, "lang: %d", getLangFormal());
+        updateBack();
         break;
+	  case KEY_LANGFORMAL:
+		langFormal = strcmp(t->value->cstring, "formal") == 0;
+		persist_write_bool(KEY_LANGFORMAL, langFormal);
+        update();
+		break;
       case KEY_FROM:
         persist_write_int(KEY_FROM, from = atoi(t->value->cstring));
 		app_log(1, "config.c", 31, "from: %d", getFromTime());
@@ -45,9 +53,16 @@ void registerConfig(void) {
   app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
 }
 
+int getLangFormal() {
+	if (langFormal<0) {
+		langFormal = persist_exists(KEY_LANGFORMAL) ? persist_read_int(KEY_LANGFORMAL) : 0;
+	}
+	return langFormal;
+}
+
 int getFromTime() {
   if (from < 0) {
-    from = persist_exists(KEY_FROM) ? persist_read_int(KEY_FROM) : 8;
+    from = persist_exists(KEY_LANGFORMAL) ? persist_read_bool(KEY_LANGFORMAL) : 1;
   }
   return from;
 }
@@ -60,10 +75,10 @@ int getToTime() {
   return to;
 }
 
-void updateVisual(void) {
+void updateBack(void) {
   bool black = persist_exists(KEY_BLACK) ? persist_read_bool(KEY_BLACK) : true;
   if (black)
-    setTo(GColorBlack, GColorWhite);
+    setBackTo(GColorBlack, GColorWhite);
   else
-    setTo(GColorWhite, GColorBlack);
+    setBackTo(GColorWhite, GColorBlack);
 }

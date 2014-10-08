@@ -66,17 +66,17 @@ Window * l_window(void) {
 TextLayer * l_txt_hour(void) {
   return s_txt_hour;
 }
+TextLayer * l_txt_min2(void) {
+  return s_txt_min2;
+}
+
+
 TextLayer * l_txt_bridge(void) {
   return s_txt_bridge;
 }
 TextLayer * l_txt_min1(void) {
   return s_txt_min1;
 }
-TextLayer * l_txt_min2(void) {
-  return s_txt_min2;
-}
-
-
 static void handle_window_unload(Window* window) {
   destroy_ui();
 }
