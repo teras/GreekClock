@@ -14,10 +14,10 @@
     "resources": {
         "media": [
             {
-                "characterRegex": "[\u03ac-\u03ce]",
-                "file": "fonts/Arial Black.ttf",
-                "name": "ARIAL_BLACK_28",
-                "type": "font"
+                "file": "images/icon.png",
+                "menuIcon": true,
+                "name": "CLOCK_ICON",
+                "type": "png"
             },
             {
                 "characterRegex": "[\u03ac-\u03ce]",
@@ -26,17 +26,17 @@
                 "type": "font"
             },
             {
-                "file": "images/icon.png",
-                "menuIcon": true,
-                "name": "CLOCK_ICON",
-                "type": "png"
+                "characterRegex": "[\u03ac-\u03ce]",
+                "file": "fonts/Arial Black.ttf",
+                "name": "ARIAL_BLACK_28",
+                "type": "font"
             }
         ]
     },
     "shortName": "GreekClock",
     "uuid": "04c08460-c725-41e7-a602-72ab49254ec2",
     "versionCode": 1,
-    "versionLabel": "1.2",
+    "versionLabel": "1.4",
     "watchapp": {
         "watchface": true
     }

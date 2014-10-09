@@ -40,12 +40,12 @@ static char* getNumber(int number, int asHour) {
       return "δέκα";
     case 11:
     case 23:
-      return getLangFormal() ? "ένδεκα" : "έντεκα";
+      return "έντεκα";
     case 0:    
     case 12:
     case 24:
       return "δώδεκα";
-	default:
+    default:
       return "?λάθος";
   }
 }
@@ -58,9 +58,11 @@ char* getTimeBridge(int minute) {
   if (minute==0)
     return getLangFormal() ? "ακριβώς" : "νταν";
   else if (minute>=6 && minute<=9)
-	  return getLangFormal() ? "και" : "κι";
+      return getLangFormal() ? "και" : "κι";
   else if (minute>=TIMEGAP)
     return "παρά";
+  else if ( !getLangFormal() && minute>=20 && minute<=29)
+    return "κι";
   else
     return "και";
 }
@@ -78,11 +80,11 @@ char* getMin1(int minute) {
     return "τριάντα";
   else if (minute>=20)
     return "είκοσι";
-  else if (getLangFormal() && minute==13)
-	return "δεκατρία";
-  else if (getLangFormal() && minute==16)
+  else if (!getLangFormal() && minute==13)
+    return "δεκατρία";
+  else if (!getLangFormal() && minute==16)
     return "δεκάξι";
-  else if (minute>13)
+  else if (minute>12)
     return "δέκα";
   else
     return getNumber(minute, FALSE);
@@ -94,8 +96,8 @@ char* getMin2(int minute) {
   else if (minute>=TIMEGAP)
     minute = 60-minute;
   if (minute<=12)
-	  return "";
-  if ( getLangFormal() &&(minute==13 || minute==16))
+      return "";
+  if ( !getLangFormal() &&(minute==13 || minute==16))
     return "";
   else if (minute>30)
     minute -= 30;
