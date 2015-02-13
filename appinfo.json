@@ -14,10 +14,10 @@
     "resources": {
         "media": [
             {
-                "file": "images/icon.png",
-                "menuIcon": true,
-                "name": "CLOCK_ICON",
-                "type": "png"
+                "characterRegex": "[\u03ac-\u03ce]",
+                "file": "fonts/Arial Black.ttf",
+                "name": "ARIAL_BLACK_28",
+                "type": "font"
             },
             {
                 "characterRegex": "[\u03ac-\u03ce]",
@@ -26,10 +26,10 @@
                 "type": "font"
             },
             {
-                "characterRegex": "[\u03ac-\u03ce]",
-                "file": "fonts/Arial Black.ttf",
-                "name": "ARIAL_BLACK_28",
-                "type": "font"
+                "file": "images/icon.png",
+                "menuIcon": true,
+                "name": "CLOCK_ICON",
+                "type": "png"
             }
         ]
     },
