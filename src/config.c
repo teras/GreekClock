@@ -77,8 +77,15 @@ int getToTime() {
 
 void updateBack(void) {
   bool black = persist_exists(KEY_BLACK) ? persist_read_bool(KEY_BLACK) : true;
-  if (black)
+#ifdef PBL_COLOR
+  if (black)	  
+    setBackTo(GColorDukeBlue, GColorWhite);
+  else
+    setBackTo(GColorWhite, GColorDukeBlue);
+#else
+  if (black)	  
     setBackTo(GColorBlack, GColorWhite);
   else
     setBackTo(GColorWhite, GColorBlack);
+#endif
 }
