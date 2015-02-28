@@ -9,3 +9,5 @@ TextLayer * l_txt_hour(void);
 TextLayer * l_txt_bridge(void);
 TextLayer * l_txt_min1(void);
 TextLayer * l_txt_min2(void);
+TextLayer * l_txt_date(void);
+TextLayer * l_txt_info(void);

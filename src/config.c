@@ -13,6 +13,8 @@ static void setBackTo(GColor back, GColor fore) {
   text_layer_set_text_color(l_txt_bridge(), fore);
   text_layer_set_text_color(l_txt_min1(), fore);
   text_layer_set_text_color(l_txt_min2(), fore);
+  text_layer_set_text_color(l_txt_date(), fore);
+  text_layer_set_text_color(l_txt_info(), fore);
 }
 
 static void in_recv_handler(DictionaryIterator *iterator, void *context) {
